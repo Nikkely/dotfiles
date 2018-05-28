@@ -1,0 +1,24 @@
+[[plugins]]
+repo = 'Shougo/unite.vim'
+
+[[plugins]]
+repo = 'Shougo/neomru.vim'
+on_source = ['unite.vim']
+
+[[plugins]]
+repo = 'Shougo/neosnippet'
+depends = ['neosnippet-snippets']
+on_i = 1
+on_ft = ['snippet']
+
+[[plugins]]
+repo = 'Shougo/neocomplete.vim'
+if = 'has("lua")'
+on_i = 1
+
+[[plugins]]
+repo = 'tomtom/tcomment_vim'
+on_i = 1
+
+[[plugins]]
+repo = 'cohama/vim-insert-linenr'
