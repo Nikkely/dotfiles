@@ -119,3 +119,14 @@ fi
 
 source ~/terminal-color-theme/color-theme-molokai/molokai.sh	
 alias ct='gnome-terminal'
+function check-shell-command {
+	if [ $? -eq 0 ]; then
+		face="\e[32m(^_^)"
+	else
+		face="\e[34m(+_+)"
+	fi
+
+	echo -e "${face}\e[m"
+}
+
+PS1='$(check-shell-command):\[\e[1;34m\]\W\[\e[m\]$ '

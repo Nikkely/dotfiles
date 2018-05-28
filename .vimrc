@@ -28,6 +28,14 @@ set ignorecase
 set smartcase
 set wrapscan
 
+"contest
+:command! Contest :e ~/workspace/contest/template.cpp
+:command! Comp call s:Func_contest_compile()
+function! s:Func_contest_compile() 
+	:! g++ %
+	:! gnome-terminal
+endfunction 
+
 "tabpage
 function! s:SID_PREFIX()
 	return matchstr(expand('<sfile>'),'<SNR>\d\+_\zeSID_PREFIX$')
@@ -161,3 +169,21 @@ if dein#tap('neocomplete.vim')
 	" タブキーで補完候補の選択. スニペット内のジャンプもタブキーでジャンプ・・・・・・③
 	imap <expr><TAB> pumvisible() ? "<C-n>" : neosnippet#jumpable() ? "<Plug>(neosnippet_expand_or_jump)" : "<TAB>"
 endif
+
+"neosnippet 
+let g:neosnippet#snippets_directory='~/.vim/my_snippet'
+ 
+ " SuperTab like snippets behavior.
+ if dein#tap('neosnippet.vim')
+	 imap  <expr><TAB>
+		 \ pumvisible() ? "\<C-n>" :
+		 \ neosnippet#expandable_or_jumpable() ?
+		 \ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+
+	 smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+		 \ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+
+	 if has('conceal')
+		 set conceallevel=2 concealcursor=i
+	 endif
+endif 

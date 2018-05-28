@@ -6,7 +6,7 @@ repo = 'Shougo/neomru.vim'
 on_source = ['unite.vim']
 
 [[plugins]]
-repo = 'Shougo/neosnippet'
+repo = 'Shougo/neosnippet.vim'
 depends = ['neosnippet-snippets']
 on_i = 1
 on_ft = ['snippet']
