@@ -98,41 +98,41 @@ nnoremap sq :<C-u>q<CR>
 nnoremap sQ :<C-u>bd<CR>
 
 "change status bar by mode
-let g:hi_insert = 'highlight StatusLine guifg=darkblue guibg=darkyellow gui=none ctermfg=blue ctermbg=yellow cterm=none'
-
-if has('syntax')
-	augroup InsertHook
-		autocmd!
-		autocmd InsertEnter * call s:StatusLine('Enter')
-		autocmd InsertLeave * call s:StatusLine('Leave')
-	augroup END
-endif
-
-let s:slhlcmd = ''
-function! s:StatusLine(mode)
-	if a:mode == 'Enter'
-		set cursorline
-		silent! let s:slhlcmd = 'highlight ' . s:GetHighlight('StatusLine')
-		silent exec g:hi_insert
-	else
-		set nocursorline
-		highlight clear StatusLine
-		silent exec s:slhlcmd
-	endif
-endfunction
-
-function! s:GetHighlight(hi)
-	redir => hl
-	exec 'highlight '.a:hi
-	redir END
-	let hl = substitute(hl, '[\r\n]', '', 'g')
-	let hl = substitute(hl, 'xxx', '', '')
-	return hl
-endfunction
-
-if has('unix') && !has('gui_running')
-	inoremap <silent> <ESC> <ESC>
-endif
+" let g:hi_insert = 'highlight StatusLine guifg=darkblue guibg=darkyellow gui=none ctermfg=blue ctermbg=yellow cterm=none'
+"
+" if has('syntax')
+" 	augroup InsertHook
+" 		autocmd!
+" 		autocmd InsertEnter * call s:StatusLine('Enter')
+" 		autocmd InsertLeave * call s:StatusLine('Leave')
+" 	augroup END
+" endif
+"
+" let s:slhlcmd = ''
+" function! s:StatusLine(mode)
+" 	if a:mode == 'Enter'
+" 		set cursorline
+" 		silent! let s:slhlcmd = 'highlight ' . s:GetHighlight('StatusLine')
+" 		silent exec g:hi_insert
+" 	else
+" 		set nocursorline
+" 		highlight clear StatusLine
+" 		silent exec s:slhlcmd
+" 	endif
+" endfunction
+"
+" function! s:GetHighlight(hi)
+" 	redir => hl
+" 	exec 'highlight '.a:hi
+" 	redir END
+" 	let hl = substitute(hl, '[\r\n]', '', 'g')
+" 	let hl = substitute(hl, 'xxx', '', '')
+" 	return hl
+" endfunction
+"
+" if has('unix') && !has('gui_running')
+" 	inoremap <silent> <ESC> <ESC>
+" endif
 
 "dein
 let s:dein_dir = expand('~/.cache/dein')
@@ -166,11 +166,11 @@ endif
 
 "colorscheme
 let g:molokai_original = 1
-if dein#tap('molokai')
-	colorscheme molokai
-	set t_Co=256
-	syntax enable
-endif 
+	if dein#tap('molokai')
+		colorscheme molokai
+		set t_Co=256
+		syntax enable
+endif
 
 "neocomplete
 if dein#tap('neocomplete.vim')
@@ -186,44 +186,42 @@ if dein#tap('neocomplete.vim')
 	let g:neocomplete#auto_completion_start_length = 3
 	" バックスペースで補完のポップアップを閉じる
 	inoremap <expr><BS> neocomplete#smart_close_popup()."<C-h>"
-
 	" エンターキーで補完候補の確定. スニペットの展開もエンターキーで確定・・・・・・②
 	imap <expr><CR> neosnippet#expandable() ? "<Plug>(neosnippet_expand_or_jump)" : pumvisible() ? "<C-y>" : "<CR>"
 	" タブキーで補完候補の選択. スニペット内のジャンプもタブキーでジャンプ・・・・・・③
 	imap <expr><TAB> pumvisible() ? "<C-n>" : neosnippet#jumpable() ? "<Plug>(neosnippet_expand_or_jump)" : "<TAB>"
 endif
 
-"sumode
+"submode
 if dein#tap('vim-submode')
-call submode#enter_with('bufmove', 'n', '', 's>', '<C-w>>')
-call submode#enter_with('bufmove', 'n', '', 's<', '<C-w><')
-call submode#enter_with('bufmove', 'n', '', 's+', '<C-w>+')
-call submode#enter_with('bufmove', 'n', '', 's-', '<C-w>-')
-call submode#map('bufmove', 'n', '', '>', '<C-w>>')
-call submode#map('bufmove', 'n', '', '<', '<C-w><')
-call submode#map('bufmove', 'n', '', '+', '<C-w>+')
-call submode#map('bufmove', 'n', '', '-', '<C-w>-')
+	call submode#enter_with('bufmove', 'n', '', 's>', '<C-w>>')
+	call submode#enter_with('bufmove', 'n', '', 's<', '<C-w><')
+	call submode#enter_with('bufmove', 'n', '', 's+', '<C-w>+')
+	call submode#enter_with('bufmove', 'n', '', 's-', '<C-w>-')
+	call submode#map('bufmove', 'n', '', '>', '<C-w>>')
+	call submode#map('bufmove', 'n', '', '<', '<C-w><')
+	call submode#map('bufmove', 'n', '', '+', '<C-w>+')
+	call submode#map('bufmove', 'n', '', '-', '<C-w>-')
+endif
+
+"vim-indent-guides
+if dein#tap('vim-indent-guides')
+	let g:indent_guides_enable_on_vim_startup = 1
 endif
 
 "neosnippet
-let g:neosnippet#snippets_directory='~/.vim/my_snippet'
-"vim-indent-guides
-if dein#tap('vim-indent-guides')
-let g:indent_guides_enable_on_vim_startup = 1
+" SuperTab like snippets behavior.
+if dein#tap('neosnippet.vim')
+	let g:neosnippet#snippets_directory='~/.vim/my_snippet'
+	imap  <expr><TAB>
+	\ pumvisible() ? "\<C-n>" :
+	\ neosnippet#expandable_or_jumpable() ?
+	\ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+
+	smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+	\ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+
+	if has('conceal')
+		set conceallevel=2 concealcursor=i
+	endif
 endif
- 
- " SuperTab like snippets behavior.
- if dein#tap('neosnippet.vim')
-	 imap  <expr><TAB>
-		 \ pumvisible() ? "\<C-n>" :
-		 \ neosnippet#expandable_or_jumpable() ?
-		 \ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
-
-	 smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-		 \ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
-
-	 if has('conceal')
-		 set conceallevel=2 concealcursor=i
-	 endif
-endif 
-
