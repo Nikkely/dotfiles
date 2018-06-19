@@ -22,6 +22,8 @@ set laststatus=2
 "tab
 set tabstop=4
 set shiftwidth=4
+autocmd BufRead,BufNewFile *.rb setlocal tabstop=2 shiftwidth =2
+autocmd BufRead,BufNewFile *.py setlocal tabstop=4 shiftwidth =4
 
 "search
 set ignorecase
@@ -31,10 +33,10 @@ set wrapscan
 "contest
 :command! Contest :e ~/workspace/contest/template.cpp
 :command! Comp call s:Func_contest_compile()
-function! s:Func_contest_compile() 
+function! s:Func_contest_compile()
 	:! g++ %
 	:! gnome-terminal
-endfunction 
+endfunction
 
 "tabpage
 function! s:SID_PREFIX()
@@ -73,6 +75,27 @@ map <silent> [Tag]c :tablast <bar> tabnew<CR>
 map <silent> [Tag]x :tabclose<CR>
 map <silent> [Tag]n : tabnext<CR>
 map <silent> [Tag]p : tabprevious<CR>
+
+nnoremap s <Nop>
+nnoremap sj <C-w>j
+nnoremap sk <C-w>k
+nnoremap sl <C-w>l
+nnoremap sh <C-w>h
+nnoremap sJ <C-w>J
+nnoremap sK <C-w>K
+nnoremap sL <C-w>L
+nnoremap sH <C-w>H
+nnoremap sn gt
+nnoremap sp gT
+nnoremap sr <C-w>r
+nnoremap s= <C-w>=
+nnoremap sw <C-w>w
+nnoremap so <C-w>_<C-w>|
+nnoremap sO <C-w>=
+nnoremap ss :<C-u>sp<CR>
+nnoremap sv :<C-u>vs<CR>
+nnoremap sq :<C-u>q<CR>
+nnoremap sQ :<C-u>bd<CR>
 
 "change status bar by mode
 let g:hi_insert = 'highlight StatusLine guifg=darkblue guibg=darkyellow gui=none ctermfg=blue ctermbg=yellow cterm=none'
@@ -170,8 +193,24 @@ if dein#tap('neocomplete.vim')
 	imap <expr><TAB> pumvisible() ? "<C-n>" : neosnippet#jumpable() ? "<Plug>(neosnippet_expand_or_jump)" : "<TAB>"
 endif
 
-"neosnippet 
+"sumode
+if dein#tap('vim-submode')
+call submode#enter_with('bufmove', 'n', '', 's>', '<C-w>>')
+call submode#enter_with('bufmove', 'n', '', 's<', '<C-w><')
+call submode#enter_with('bufmove', 'n', '', 's+', '<C-w>+')
+call submode#enter_with('bufmove', 'n', '', 's-', '<C-w>-')
+call submode#map('bufmove', 'n', '', '>', '<C-w>>')
+call submode#map('bufmove', 'n', '', '<', '<C-w><')
+call submode#map('bufmove', 'n', '', '+', '<C-w>+')
+call submode#map('bufmove', 'n', '', '-', '<C-w>-')
+endif
+
+"neosnippet
 let g:neosnippet#snippets_directory='~/.vim/my_snippet'
+"vim-indent-guides
+if dein#tap('vim-indent-guides')
+let g:indent_guides_enable_on_vim_startup = 1
+endif
  
  " SuperTab like snippets behavior.
  if dein#tap('neosnippet.vim')
@@ -187,3 +226,4 @@ let g:neosnippet#snippets_directory='~/.vim/my_snippet'
 		 set conceallevel=2 concealcursor=i
 	 endif
 endif 
+

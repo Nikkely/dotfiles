@@ -22,3 +22,7 @@ on_i = 1
 
 [[plugins]]
 repo = 'cohama/vim-insert-linenr'
+
+[[plugins]]
+repo = 'tpope/vim-endwise'
+on_i = 1
