@@ -129,4 +129,4 @@ function check-shell-command {
 	echo -e "${face}\e[m"
 }
 
-PS1='$(check-shell-command):\[\e[1;34m\]\W\[\e[m\]$ '
+source ~/dotfiles/cawaii_prompt.sh
