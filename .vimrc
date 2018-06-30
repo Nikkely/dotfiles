@@ -7,7 +7,7 @@ set showcmd
 set nowritebackup
 set nobackup
 set backspace=indent,eol,start
-
+inoremap <silent> jj <ESC>
 
 "visual
 set number
@@ -111,7 +111,8 @@ if dein#load_state(s:dein_dir)
   call dein#begin(s:dein_dir)
 
   let g:rc_dir    = expand('~/.vim/rc')
-  let s:toml      = g:rc_dir . '/dein.toml'
+
+\   let s:toml      = g:rc_dir . '/dein.toml'
   let s:lazy_toml = g:rc_dir . '/dein_lazy.toml'
 
   call dein#load_toml(s:toml,      {'lazy': 0})
@@ -168,9 +169,6 @@ if dein#tap('neosnippet.vim')
 	endif
 endif
 "neocomplete
-function! s:my_crinsert()
-    return pumvisible() ? neocomplete#close_popup() : "\<Cr>"
-endfunction	
 if dein#tap('neocomplete.vim')
 	let g:neocomplete#enable_at_startup = 1
 	let g:neocomplete#enable_smart_case = 1
@@ -178,7 +176,9 @@ if dein#tap('neocomplete.vim')
 	let g:neocomplete#enable_auto_delimiter = 1
 	let g:neocomplete#auto_completion_start_length = 1
 	inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
-	inoremap <silent> <CR> <C-R>=<SID>my_crinsert()<CR>
+	imap <expr><CR> neosnippet#expandable() ? 
+	\ "\<Plug>(neosnippet_expand_or_jump)" 
+	\ : pumvisible() ? "\<C-y>" : "\<CR>"
 	imap  <expr><TAB>
 	\ pumvisible() ? "\<C-n>" :
 	\ neosnippet#expandable_or_jumpable() ?
@@ -266,3 +266,6 @@ set statusline+=\ %8*⮂
 set statusline+=%7*\ %p%%\ 
 set statusline+=%6*⮂%5*⭡\ \ %l:%c\ 
 
+syntax on
+" call map(dein#check_clean(),"delete(v:val, 'rf')")
+"call dein#recache_runteimepath()
