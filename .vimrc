@@ -267,6 +267,13 @@ set statusline+=\ %8*⮂
 set statusline+=%7*\ %p%%\ 
 set statusline+=%6*⮂%5*⭡\ \ %l:%c\ 
 
+" NERDTree
+let g:NERDTreeDirArrows = 1
+let g:NERDTreeDirArrowExpandable  = '→'
+let g:NERDTreeDirArrowCollapsible = '↓'
+" ctrl-n で NERDTree を起動
+nnoremap <silent> <C-n> :NERDTreeToggle<CR>
+
 syntax on
 " call map(dein#check_clean(),"delete(v:val, 'rf')")
 "call dein#recache_runteimepath()
