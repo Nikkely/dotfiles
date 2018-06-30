@@ -116,8 +116,6 @@ if ! shopt -oq posix; then
   fi
 fi
 
-
-source ~/terminal-color-theme/color-theme-molokai/molokai.sh	
 alias ct='gnome-terminal'
 function check-shell-command {
 	if [ $? -eq 0 ]; then
