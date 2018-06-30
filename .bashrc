@@ -128,3 +128,5 @@ function check-shell-command {
 }
 
 source ~/dotfiles/cawaii_prompt.sh
+alias pbcopy='xsel --clipboard --input'
+alias pbpaste='xsel --clipboard --output'
