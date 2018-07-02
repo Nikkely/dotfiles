@@ -273,7 +273,6 @@ let g:NERDTreeDirArrowExpandable  = '→'
 let g:NERDTreeDirArrowCollapsible = '↓'
 " ctrl-n で NERDTree を起動
 nnoremap <silent> <C-n> :NERDTreeToggle<CR>
-autocmd VimEnter * execute 'NERDTree'
 
 syntax on
 " call map(dein#check_clean(),"delete(v:val, 'rf')")
