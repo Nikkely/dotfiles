@@ -242,8 +242,8 @@ function! LinterStatus() abort
     let l:all_non_errors = l:counts.total - l:all_errors
     return l:counts.total == 0 ? 'OK' : printf(
     \   '☠ %d ⚠ %d ⬥ ok',
-    \   all_non_errors,
-    \   all_errors
+    \   all_errors,
+    \   all_non_errors
     \)
 endfunction
 
