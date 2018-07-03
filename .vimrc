@@ -26,6 +26,7 @@ set tabstop=4
 set shiftwidth=4
 autocmd BufRead,BufNewFile *.rb setlocal tabstop=2 shiftwidth =2
 autocmd BufRead,BufNewFile *.erb setlocal tabstop=2 shiftwidth =2
+autocmd BufRead,BufNewFile *.slim setlocal tabstop=2 shiftwidth =2
 autocmd BufRead,BufNewFile *.py setlocal tabstop=4 shiftwidth =4
 
 "search
