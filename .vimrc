@@ -18,11 +18,15 @@ set visualbell
 set showmatch
 set laststatus=2
 
+"filetype
+autocmd BufRead,BufNewFile *.slim setfiletype slim
+
 "tab
 set tabstop=4
 set shiftwidth=4
 autocmd BufRead,BufNewFile *.rb setlocal tabstop=2 shiftwidth =2
 autocmd BufRead,BufNewFile *.erb setlocal tabstop=2 shiftwidth =2
+autocmd BufRead,BufNewFile *.slim setlocal tabstop=2 shiftwidth =2
 autocmd BufRead,BufNewFile *.py setlocal tabstop=4 shiftwidth =4
 
 "search
@@ -273,7 +277,8 @@ let g:NERDTreeDirArrowExpandable  = '→'
 let g:NERDTreeDirArrowCollapsible = '↓'
 " ctrl-n で NERDTree を起動
 nnoremap <silent> <C-n> :NERDTreeToggle<CR>
-autocmd VimEnter * execute 'NERDTree'
+autocmd vimenter * if !argc() | NERDTree | endif
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 syntax on
 " call map(dein#check_clean(),"delete(v:val, 'rf')")

@@ -30,3 +30,6 @@ repo = 'w0rp/ale'
 
 [[plugins]]
 repo = 'scrooloose/nerdtree'
+
+[[plugins]]
+repo = 'slim-template/vim-slim'
