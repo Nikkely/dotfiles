@@ -22,3 +22,4 @@ on_i = 1
 
 [[plugins]]
 repo = 'cohama/vim-insert-linenr'
+on_i = 1
