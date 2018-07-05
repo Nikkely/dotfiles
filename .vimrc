@@ -7,6 +7,8 @@ set showcmd
 set nowritebackup
 set nobackup
 set backspace=indent,eol,start
+set clipboard&
+set clipboard^=unnamedplus
 inoremap <silent> jj <ESC>
 
 "visual
