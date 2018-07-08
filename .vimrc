@@ -21,13 +21,14 @@ endfunction
 nnoremap OO :<C-u>call append(expand('.'), '')<Cr>
 
 "complete
-inoremap { {}<LEFT>
-inoremap ( ()<LEFT>
-inoremap [ []<LEFT>
-inoremap {<Enter> {}<Left><CR><CR><UP>
+" inoremap { {}<LEFT>
+" inoremap ( ()<LEFT>
+" inoremap [ []<LEFT>
+" inoremap {<Enter> {}<Left><CR><CR><UP>
+inoremap {<CR> {<CR>}<UP><C-o>$<CR>
 inoremap [<Enter> []<Left><CR><CR><UP>
 inoremap (<Enter> ()<Left><CR><CR><UP>
-inoremap }} <RIGHT>
+" inoremap }} <RIGHT>
 "visual
 set number
 set title
