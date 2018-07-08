@@ -9,6 +9,14 @@ set nobackup
 set backspace=indent,eol,start
 inoremap <silent> jj <ESC>
 
+"complete
+inoremap { {}<LEFT>
+inoremap ( ()<LEFT>
+inoremap [ []<LEFT>
+inoremap {<Enter> {}<Left><CR><CR><UP>
+inoremap [<Enter> []<Left><CR><CR><UP>
+inoremap (<Enter> ()<Left><CR><CR><UP>
+
 "visual
 set number
 set title
@@ -36,11 +44,10 @@ set smartcase
 set wrapscan
 
 "contest
-:command! Contest :e ~/workspace/contest/template.cpp
-:command! Comp call s:Func_contest_compile()
-function! s:Func_contest_compile()
-	:! g++ %
-	:! gnome-terminal
+:command! Opentemplate call Open_Template()
+function! Open_Template()
+	tabnew<CR>
+	:e ~/contest_template.h
 endfunction
 
 "tabpage
@@ -117,7 +124,7 @@ if dein#load_state(s:dein_dir)
 
   let g:rc_dir    = expand('~/.vim/rc')
 
-\   let s:toml      = g:rc_dir . '/dein.toml'
+  let s:toml      = g:rc_dir . '/dein.toml'
   let s:lazy_toml = g:rc_dir . '/dein_lazy.toml'
 
   call dein#load_toml(s:toml,      {'lazy': 0})
