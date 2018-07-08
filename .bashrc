@@ -131,3 +131,4 @@ source ~/dotfiles/cawaii_prompt.sh
 alias pbcopy='xsel --clipboard --input'
 alias pbpaste='xsel --clipboard --output'
 alias gdrive='gdrive-linux-64'
+PCONT="/home/engawa/workspace/contest/"

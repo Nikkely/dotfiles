@@ -1,3 +1,4 @@
+echo "Startig vim... (Press any Key)"
 "settings
 set fenc=utf-8
 set fileencodings=utf-8,euc-jp,sjis,cp932,iso-2022-jp
@@ -9,7 +10,15 @@ set nobackup
 set backspace=indent,eol,start
 set clipboard&
 set clipboard^=unnamedplus
+set timeoutlen=500
 inoremap <silent> jj <ESC>
+:command! Svimrc :source ~/.vimrc
+:command! Openvimrc call Open_vimrc ()
+function! Open_vimrc()
+	tabnew<CR>
+	:e ~/.vimrc
+endfunction 
+nnoremap OO :<C-u>call append(expand('.'), '')<Cr>
 
 "complete
 inoremap { {}<LEFT>
@@ -18,7 +27,7 @@ inoremap [ []<LEFT>
 inoremap {<Enter> {}<Left><CR><CR><UP>
 inoremap [<Enter> []<Left><CR><CR><UP>
 inoremap (<Enter> ()<Left><CR><CR><UP>
-
+inoremap }} <RIGHT>
 "visual
 set number
 set title
