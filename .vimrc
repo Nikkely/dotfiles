@@ -26,8 +26,8 @@ nnoremap OO :<C-u>call append(expand('.'), '')<Cr>
 " inoremap [ []<LEFT>
 " inoremap {<Enter> {}<Left><CR><CR><UP>
 inoremap {<CR> {<CR>}<UP><C-o>$<CR>
-inoremap [<Enter> []<Left><CR><CR><UP>
-inoremap (<Enter> ()<Left><CR><CR><UP>
+inoremap [<CR> [<CR>]<UP><C-o>$<CR>
+inoremap {<CR> (<CR>)<UP><C-o>$<CR>
 " inoremap }} <RIGHT>
 "visual
 set number
