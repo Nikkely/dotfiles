@@ -7,6 +7,8 @@ set showcmd
 set nowritebackup
 set nobackup
 set backspace=indent,eol,start
+set clipboard&
+set clipboard^=unnamedplus
 inoremap <silent> jj <ESC>
 
 "complete
@@ -32,6 +34,7 @@ autocmd BufRead,BufNewFile *.slim setfiletype slim
 "tab
 set tabstop=4
 set shiftwidth=4
+" set expandtab
 autocmd BufRead,BufNewFile *.rb setlocal tabstop=2 shiftwidth =2
 autocmd BufRead,BufNewFile *.erb setlocal tabstop=2 shiftwidth =2
 autocmd BufRead,BufNewFile *.slim setlocal tabstop=2 shiftwidth =2
