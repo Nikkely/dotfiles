@@ -8,8 +8,10 @@ set showcmd
 set nowritebackup
 set nobackup
 set backspace=indent,eol,start
-set clipboard&
-set clipboard^=unnamedplus
+set nowrap
+" set clipboard&
+" set clipboard^=unnamedplus
+set clipboard=unnamed,autoselect
 set timeoutlen=500
 inoremap <silent> jj <ESC>
 :command! Svimrc :source ~/.vimrc
@@ -27,7 +29,7 @@ nnoremap OO :<C-u>call append(expand('.'), '')<Cr>
 " inoremap {<Enter> {}<Left><CR><CR><UP>
 inoremap {<CR> {<CR>}<UP><C-o>$<CR>
 inoremap [<CR> [<CR>]<UP><C-o>$<CR>
-inoremap {<CR> (<CR>)<UP><C-o>$<CR>
+inoremap (<CR> (<CR>)<UP><C-o>$<CR>
 " inoremap }} <RIGHT>
 "visual
 set number
