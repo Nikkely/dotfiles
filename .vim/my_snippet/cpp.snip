@@ -1,4 +1,18 @@
-snippet     UnionFind 
+/* snippet for */
+/* 	for (${1:int} ${2:i} = ${3:0}; ${|2|} ${5:<} ${6:N}; ${7:i++}) { */
+/* 		${8} */
+/* 	} */
+/* 	${0} */
+/*  */
+/* snippet sort_stl */
+/* 	sort(${1:#:data}.begin(), ${1}.end(),${2}); */
+/* 	${0} */
+/*  */
+/* snippet sort_array */
+/* 	sort(${1:#:ary}, ${1} + ${2:N},${3}); */
+/* 	${0} */
+
+snippet temp_UnionFind 
 	template<class Abel> struct UnionFind{
 		vector<int> par;
 		vector<int> rank;

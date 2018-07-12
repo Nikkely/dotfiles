@@ -10,14 +10,15 @@ set nobackup
 set backspace=indent,eol,start
 set clipboard&
 set clipboard^=unnamedplus
-set timeoutlen=500
+set timeoutlen=400
+set nowrap
 inoremap <silent> jj <ESC>
 :command! Svimrc :source ~/.vimrc
 :command! Openvimrc call Open_vimrc ()
 function! Open_vimrc()
 	tabnew<CR>
 	:e ~/.vimrc
-endfunction 
+endfunction
 nnoremap OO :<C-u>call append(expand('.'), '')<Cr>
 
 "complete
@@ -27,7 +28,7 @@ nnoremap OO :<C-u>call append(expand('.'), '')<Cr>
 " inoremap {<Enter> {}<Left><CR><CR><UP>
 inoremap {<CR> {<CR>}<UP><C-o>$<CR>
 inoremap [<CR> [<CR>]<UP><C-o>$<CR>
-inoremap {<CR> (<CR>)<UP><C-o>$<CR>
+inoremap (<CR> (<CR>)<UP><C-o>$<CR>
 " inoremap }} <RIGHT>
 "visual
 set number

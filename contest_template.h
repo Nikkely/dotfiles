@@ -23,6 +23,8 @@ template<class T>bool chmin(T &a, const T &b) { if( b < a ) { a = b; return 1; }
 #define SET_NUM_ARRAY(a,b)	( memset((a), b, sizeof(a)))
 //#define int long long int //dont forget to change int to signed
 
+const int INT_INF = 1000000007;
+
 // situational
 lli C[51][51];
 void combinate_init(int n) {
