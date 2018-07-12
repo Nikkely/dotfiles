@@ -33,3 +33,9 @@ repo = 'scrooloose/nerdtree'
 
 [[plugins]]
 repo = 'slim-template/vim-slim'
+
+[[plugins]]
+repo = 'leafgarland/typescript-vim'
+
+[[plugins]]
+repo = 'jason0x43/vim-js-indent'

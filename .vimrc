@@ -12,6 +12,9 @@ set clipboard&
 set clipboard^=unnamedplus
 set timeoutlen=400
 set nowrap
+" set clipboard&
+" set clipboard^=unnamedplus
+set timeoutlen=500
 inoremap <silent> jj <ESC>
 :command! Svimrc :source ~/.vimrc
 :command! Openvimrc call Open_vimrc ()
