@@ -14,7 +14,7 @@ set timeoutlen=400
 set nowrap
 " set clipboard&
 " set clipboard^=unnamedplus
-set timeoutlen=500
+set timeoutlen=400
 inoremap <silent> jj <ESC>
 :command! Svimrc :source ~/.vimrc
 :command! Openvimrc call Open_vimrc ()
@@ -23,6 +23,7 @@ function! Open_vimrc()
 	:e ~/.vimrc
 endfunction
 nnoremap OO :<C-u>call append(expand('.'), '')<Cr>
+:command! SudoSave :w !sudo tee %
 
 "complete
 inoremap { {}<LEFT>
