@@ -25,14 +25,15 @@ endfunction
 nnoremap OO :<C-u>call append(expand('.'), '')<Cr>
 
 "complete
-" inoremap { {}<LEFT>
-" inoremap ( ()<LEFT>
-" inoremap [ []<LEFT>
+inoremap { {}<LEFT>
+inoremap ( ()<LEFT>
+inoremap [ []<LEFT>
 " inoremap {<Enter> {}<Left><CR><CR><UP>
 inoremap {<CR> {<CR>}<UP><C-o>$<CR>
 inoremap [<CR> [<CR>]<UP><C-o>$<CR>
 inoremap (<CR> (<CR>)<UP><C-o>$<CR>
 " inoremap }} <RIGHT>
+
 "visual
 set number
 set title
@@ -58,6 +59,7 @@ autocmd BufRead,BufNewFile *.py setlocal tabstop=4 shiftwidth =4
 set incsearch
 set ignorecase
 set smartcase
+set hlsearch
 set wrapscan
 
 "contest
