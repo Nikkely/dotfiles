@@ -16,6 +16,7 @@ set nowrap
 " set clipboard^=unnamedplus
 set timeoutlen=400
 inoremap <silent> jj <ESC>
+inoremap JJ <ESC>%%a
 :command! Svimrc :source ~/.vimrc
 :command! Openvimrc call Open_vimrc ()
 function! Open_vimrc()
@@ -29,6 +30,9 @@ nnoremap OO :<C-u>call append(expand('.'), '')<Cr>
 inoremap { {}<LEFT>
 inoremap ( ()<LEFT>
 inoremap [ []<LEFT>
+inoremap {} {}
+inoremap () ()
+inoremap [] []
 " inoremap {<Enter> {}<Left><CR><CR><UP>
 inoremap {<CR> {<CR>}<UP><C-o>$<CR>
 inoremap [<CR> [<CR>]<UP><C-o>$<CR>

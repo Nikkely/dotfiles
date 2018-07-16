@@ -84,7 +84,7 @@ int count32bit(unsigned v) {
 // 	return (int)((count & 0x00000000ffffffff) + ((count >> 32) & 0x00000000ffffffff));
 // }
 
-template<class Abel> struct UnionFind{
+template<class Abel> struct UnionFind_weighted{
 	vector<int> par;
 	vector<int> rank;
 	vector<Abel> diff_weight;
@@ -139,6 +139,44 @@ template<class Abel> struct UnionFind{
 		if (rank[x] == rank[y]) ++rank[x];
 		par[y] = x;
 		diff_weight[y] = w;
+		return true;
+	}
+};
+template<class Abel> struct UnionFind{
+	vector<int> par;
+	vector<int> rank;
+
+	UnionFind(int n = 1) {
+		init(n);
+	}
+	void init(int n = 1) {
+		par.resize(n);
+		rank.resize(n);
+		for (int i = 0; i < n; i++) {
+			par[i] = i;
+			rank[i] = 0;
+		}
+	}
+	int root(int x) {
+		if (par[x] == x) {
+			return x;
+		} else {
+			int r = root(par[x]);
+			return par[x] = r;
+		}
+	}
+	bool issame(int x, int y) {
+		return root(x) == root(y);
+	}
+	bool merge(int x, int y) {
+		x = root(x);
+		y = root(y);
+		if (x == y) return false;
+		if (rank[x] < rank[y]) {
+			swap(x,y);
+		}
+		if (rank[x] == rank[y]) ++rank[x];
+		par[y] = x;
 		return true;
 	}
 };
