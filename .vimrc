@@ -1,4 +1,3 @@
-echo "Startig vim... (Press any Key)"
 "settings
 set fenc=utf-8
 set fileencodings=utf-8,euc-jp,sjis,cp932,iso-2022-jp
@@ -8,12 +7,12 @@ set showcmd
 set nowritebackup
 set nobackup
 set backspace=indent,eol,start
-set clipboard&
-set clipboard^=unnamedplus
-set timeoutlen=400
-set nowrap
 " set clipboard&
 " set clipboard^=unnamedplus
+set clipboard=unnamed
+"for mac tentatively fix
+set timeoutlen=400
+set nowrap
 set timeoutlen=400
 inoremap <silent> jj <ESC>
 inoremap JJ <ESC>%%a
@@ -306,5 +305,7 @@ autocmd vimenter * if !argc() | NERDTree | endif
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 syntax on
+set cursorline
+hi clear CursorLine
 " call map(dein#check_clean(),"delete(v:val, 'rf')")
 "call dein#recache_runteimepath()
