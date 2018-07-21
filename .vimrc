@@ -17,13 +17,15 @@ set timeoutlen=400
 inoremap <silent> jj <ESC>
 inoremap JJ <ESC>%%a
 :command! Svimrc :source ~/.vimrc
-:command! Openvimrc call Open_vimrc ()
+:command! OpenVimrc call Open_vimrc ()
 function! Open_vimrc()
 	tabnew<CR>
 	:e ~/.vimrc
 endfunction
 nnoremap OO :<C-u>call append(expand('.'), '')<Cr>
 :command! SudoSave :w !sudo tee %
+vnoremap > >gv
+vnoremap < <gv
 
 "complete
 inoremap { {}<LEFT>
@@ -46,6 +48,7 @@ set smartindent
 set visualbell
 set showmatch
 set laststatus=2
+let loaded_matchparen = 1
 
 "filetype
 autocmd BufRead,BufNewFile *.slim setfiletype slim
@@ -67,7 +70,7 @@ set hlsearch
 set wrapscan
 
 "contest
-:command! Opentemplate call Open_Template()
+:command! OpenTemplate call Open_Template()
 function! Open_Template()
 	tabnew<CR>
 	:e ~/contest_template.h
