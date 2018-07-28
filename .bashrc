@@ -132,3 +132,6 @@ alias pbcopy='xsel --clipboard --input'
 alias pbpaste='xsel --clipboard --output'
 alias gdrive='gdrive-linux-64'
 PCONT="/home/engawa/workspace/contest/"
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
+alias psqlserver='/etc/init.d/postgresql'

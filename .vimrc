@@ -14,6 +14,7 @@ set clipboard=unnamed
 set timeoutlen=400
 set nowrap
 set timeoutlen=400
+set belloff=all
 inoremap <silent> jj <ESC>
 inoremap JJ <ESC>%%a
 :command! Svimrc :source ~/.vimrc
