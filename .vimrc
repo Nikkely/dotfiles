@@ -52,6 +52,7 @@ set showmatch
 set laststatus=2
 let loaded_matchparen = 1
 
+
 "filetype
 autocmd BufRead,BufNewFile *.slim setfiletype slim
 
@@ -218,7 +219,8 @@ if dein#tap('neocomplete.vim')
     imap <expr><CR> neosnippet#expandable() ? "<Plug>(neosnippet_expand_or_jump)" : pumvisible() ? "<C-y>" : "<CR>"
     imap <expr><TAB> pumvisible() ? "<C-n>" : neosnippet#jumpable() ? "<Plug>(neosnippet_expand_or_jump)" : "<TAB>"
 endif
-
+"Rainbow
+let g:rainbow_active = 1
 " Status bar
 " ---------------------------------------------------
 let g:last_mode = ""
