@@ -9,7 +9,6 @@ set nobackup
 set backspace=indent,eol,start
 " set clipboard&
 " set clipboard^=unnamedplus
-"set clipboard=unnamed
 set clipboard=unnamedplus
 "for mac tentatively fix
 set timeoutlen=400
