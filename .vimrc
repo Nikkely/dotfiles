@@ -307,7 +307,7 @@ let g:NERDTreeDirArrowExpandable  = '→'
 let g:NERDTreeDirArrowCollapsible = '↓'
 " ctrl-n で NERDTree を起動
 nnoremap <silent> <C-n> :NERDTreeToggle<CR>
-autocmd vimenter * if !argc() | NERDTree | endif
+" autocmd vimenter * if !argc() | NERDTree | endif
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 syntax on

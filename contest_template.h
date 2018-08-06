@@ -84,6 +84,28 @@ int count32bit(unsigned v) {
 // 	return (int)((count & 0x00000000ffffffff) + ((count >> 32) & 0x00000000ffffffff));
 // }
 
+#define MOD (lli)(1e9 + 7)
+int modmul(int a, int b) {
+    return ((a %MOD) * (b % MOD)) % MOD;
+}
+
+int modpower(int x, int y) {
+    if (y == 0) return 1;
+    else if (y == 1) return x;
+    else if (y & 1) {
+        int t = modpower(x, y >> 1);
+        return modmul(modmul(t, t), x);
+    }
+    else {
+        int t = modpower(x, y >> 1);
+        return modmul(t, t);
+    }
+}
+
+int moddiv(int a, int b) {
+    return modmul(a ,modpower(b, MOD-2));
+}
+
 template<class Abel> struct UnionFind_weighted{
 	vector<int> par;
 	vector<int> rank;
