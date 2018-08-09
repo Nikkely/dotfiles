@@ -281,25 +281,25 @@ function! LinterStatus() abort
     \)
 endfunction
 
-set statusline=%2*%{Mode()}%3*⮀%1*
+set statusline=%2*\|%{Mode()}\ \|%1*
 set statusline+=%#StatusLine#
-set statusline+=%{strlen(fugitive#statusline())>0?'\ ⭠\ ':''}
+set statusline+=%{strlen(fugitive#statusline())>0?'\ git\:\ ':''}
 set statusline+=%{matchstr(fugitive#statusline(),'(\\zs.*\\ze)')}
-set statusline+=%{strlen(fugitive#statusline())>0?'\ \ ⮁\ ':'\ '}
+set statusline+=%{strlen(fugitive#statusline())>0?'\ \ =>\ ':'\ '}
 set statusline+=%f\ %{&ro?'⭤':''}%{&mod?'+':''}%<
-set statusline+=%3*\ 
+set statusline+=%4*\*\*%3*\ 
 set statusline+=%{LinterStatus()}
-set statusline+=\ %4*⮀
+set statusline+=\ %4*\*\*
 set statusline+=%#warningmsg#
 set statusline+=%=
-set statusline+=%4*⮂
+set statusline+=\|
 set statusline+=%#StatusLine#
-set statusline+=\ %{strlen(&fileformat)>0?&fileformat.'\ ⮃\ ':''}
-set statusline+=%{strlen(&fileencoding)>0?&fileencoding.'\ ⮃\ ':''}
+set statusline+=\ %{strlen(&fileformat)>0?&fileformat.'\:\:':''}
+set statusline+=%{strlen(&fileencoding)>0?&fileencoding.'\:\:':''}
 set statusline+=%{strlen(&filetype)>0?&filetype:''}
-set statusline+=\ %8*⮂
-set statusline+=%7*\ %p%%\ 
-set statusline+=%6*⮂%5*⭡\ \ %l:%c\ 
+set statusline+=\ %7*%8*-
+set statusline+=%7*%p%%%8*-
+set statusline+=%5*%l:%c
 
 " NERDTree
 let g:NERDTreeDirArrows = 1
