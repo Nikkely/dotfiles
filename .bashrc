@@ -116,22 +116,16 @@ if ! shopt -oq posix; then
   fi
 fi
 
-alias ct='gnome-terminal'
-function check-shell-command {
-	if [ $? -eq 0 ]; then
-		face="\e[32m(^_^)"
-	else
-		face="\e[34m(+_+)"
-	fi
-
-	echo -e "${face}\e[m"
-}
+if [[ -s $HOME/.nvm/nvm.sh ]] ; then source $HOME/.nvm/nvm.sh ; fi
+NODE_HOME=$HOME/.nvm/versions/node/v6.10.2/bin
+PATH=$NODE_HOME:$PATH
 
 source ~/dotfiles/cawaii_prompt.sh
 alias pbcopy='xsel --clipboard --input'
 alias pbpaste='xsel --clipboard --output'
-alias gdrive='gdrive-linux-64'
 PCONT="/home/engawa/workspace/contest/"
+ATCOP='/home/engawa/workspace/contest/atcoder/kako/'
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
 alias psqlserver='/etc/init.d/postgresql'
+alias tor='/home/engawa/tor-browser_en-US/start-tor-browser.desktop'

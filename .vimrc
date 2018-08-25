@@ -20,8 +20,8 @@ inoremap JJ <ESC>%%a
 :command! Svimrc :source ~/.vimrc
 :command! OpenVimrc call Open_vimrc ()
 function! Open_vimrc()
-	tabnew<CR>
-	:e ~/.vimrc
+    tabnew<CR>
+    :e ~/.vimrc
 endfunction
 nnoremap OO :<C-u>call append(expand('.'), '')<Cr>
 :command! SudoSave :w !sudo tee %
@@ -49,6 +49,7 @@ set smartindent
 set visualbell
 set showmatch
 set laststatus=2
+set ambiwidth=double
 let loaded_matchparen = 1
 
 
@@ -63,6 +64,8 @@ autocmd BufRead,BufNewFile *.rb setlocal tabstop=2 shiftwidth =2
 autocmd BufRead,BufNewFile *.erb setlocal tabstop=2 shiftwidth =2
 autocmd BufRead,BufNewFile *.slim setlocal tabstop=2 shiftwidth =2
 autocmd BufRead,BufNewFile *.py setlocal tabstop=4 shiftwidth =4
+set list
+set listchars=tab:»-,trail:-,eol:↲,extends:»,precedes:«,nbsp:%
 
 "search
 set incsearch
@@ -74,32 +77,32 @@ set wrapscan
 "contest
 :command! OpenTemplate call Open_Template()
 function! Open_Template()
-	tabnew<CR>
-	:e ~/contest_template.h
+    tabnew<CR>
+    :e ~/contest_template.h
 endfunction
 
 "tabpage
 function! s:SID_PREFIX()
-	return matchstr(expand('<sfile>'),'<SNR>\d\+_\zeSID_PREFIX$')
+    return matchstr(expand('<sfile>'),'<SNR>\d\+_\zeSID_PREFIX$')
 endfunction
 
 function! s:my_tabline()
-	let s = ''
-	for i in range(1, tabpagenr('$'))
-		let bufnrs = tabpagebuflist(i)
-		let bufnr = bufnrs[tabpagewinnr(i) - 1]
-		let no = i
-		let mod = getbufvar(bufnr, '&modified') ? '!' : ' '
-		let title = fnamemodify(bufname(bufnr),':t')
-		let title = '['.title.']'
-		let s .= '%'.i.'T'
-		let s .= '%#' . (i ==tabpagenr() ? 'TabLineSel' : 'TabLine') . '#'
-		let s .= no . ':' . title
-		let s .= mod
-		let s .= '%#TabLineFill#'
-	endfor
-	let s .= '%#TabLineFill#%T%=%#TabLine#'
-	return s
+    let s = ''
+    for i in range(1, tabpagenr('$'))
+        let bufnrs = tabpagebuflist(i)
+        let bufnr = bufnrs[tabpagewinnr(i) - 1]
+        let no = i
+        let mod = getbufvar(bufnr, '&modified') ? '!' : ' '
+        let title = fnamemodify(bufname(bufnr),':t')
+        let title = '['.title.']'
+        let s .= '%'.i.'T'
+        let s .= '%#' . (i ==tabpagenr() ? 'TabLineSel' : 'TabLine') . '#'
+        let s .= no . ':' . title
+        let s .= mod
+        let s .= '%#TabLineFill#'
+    endfor
+    let s .= '%#TabLineFill#%T%=%#TabLine#'
+    return s
 endfunction
 
 let &tabline = '%!' . s:SID_PREFIX() .'my_tabline()'
@@ -108,7 +111,7 @@ set showtabline=2
 nnoremap [Tag] <Nop>
 nmap t [Tag]
 for n in range(1, 9)
-	execute 'nnoremap <silent> [Tag]' .n ':<C-u>tabnext' . n . '<CR>'
+    execute 'nnoremap <silent> [Tag]' .n ':<C-u>tabnext' . n . '<CR>'
 endfor
 
 map <silent> [Tag]t :tablast <bar> tabnew<CR>
@@ -168,53 +171,53 @@ endif
 
 "colorscheme
 let g:molokai_original = 1
-	if dein#tap('molokai')
-		colorscheme molokai
-		set t_Co=256
-		syntax enable
+    if dein#tap('molokai')
+        colorscheme molokai
+        set t_Co=256
+        syntax enable
 endif
 
 
 "submode
 if dein#tap('vim-submode')
-	call submode#enter_with('bufmove', 'n', '', 's>', '<C-w>>')
-	call submode#enter_with('bufmove', 'n', '', 's<', '<C-w><')
-	call submode#enter_with('bufmove', 'n', '', 's+', '<C-w>+')
-	call submode#enter_with('bufmove', 'n', '', 's-', '<C-w>-')
-	call submode#map('bufmove', 'n', '', '>', '<C-w>>')
-	call submode#map('bufmove', 'n', '', '<', '<C-w><')
-	call submode#map('bufmove', 'n', '', '+', '<C-w>+')
-	call submode#map('bufmove', 'n', '', '-', '<C-w>-')
+    call submode#enter_with('bufmove', 'n', '', 's>', '<C-w>>')
+    call submode#enter_with('bufmove', 'n', '', 's<', '<C-w><')
+    call submode#enter_with('bufmove', 'n', '', 's+', '<C-w>+')
+    call submode#enter_with('bufmove', 'n', '', 's-', '<C-w>-')
+    call submode#map('bufmove', 'n', '', '>', '<C-w>>')
+    call submode#map('bufmove', 'n', '', '<', '<C-w><')
+    call submode#map('bufmove', 'n', '', '+', '<C-w>+')
+    call submode#map('bufmove', 'n', '', '-', '<C-w>-')
 endif
 
 "vim-indent-guides
 if dein#tap('vim-indent-guides')
-	let g:indent_guides_enable_on_vim_startup = 1
+    let g:indent_guides_enable_on_vim_startup = 1
 endif
 
 "neosnippet
 " SuperTab like snippets behavior.
 if dein#tap('neosnippet.vim')
-	let g:neosnippet#snippets_directory='~/.vim/my_snippet'
-	imap  <expr><TAB>
-	\ pumvisible() ? "\<C-n>" :
-	\ neosnippet#expandable_or_jumpable() ?
-	\ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+    let g:neosnippet#snippets_directory='~/.vim/my_snippet'
+    imap  <expr><TAB>
+    \ pumvisible() ? "\<C-n>" :
+    \ neosnippet#expandable_or_jumpable() ?
+    \ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
 
-	smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-	\ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+    smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+    \ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
 
-	if has('conceal')
-		set conceallevel=2 concealcursor=i
-	endif
+    if has('conceal')
+        set conceallevel=2 concealcursor=i
+    endif
 endif
 "neocomplete
 if dein#tap('neocomplete.vim')
-	let g:neocomplete#enable_at_startup = 1
-	let g:neocomplete#enable_smart_case = 1
-	let g:neocomplete#min_keyword_length = 3
-	let g:neocomplete#enable_auto_delimiter = 1
-	let g:neocomplete#auto_completion_start_length = 1
+    let g:neocomplete#enable_at_startup = 1
+    let g:neocomplete#enable_smart_case = 1
+    let g:neocomplete#min_keyword_length = 3
+    let g:neocomplete#enable_auto_delimiter = 1
+    let g:neocomplete#auto_completion_start_length = 1
     imap <expr><CR> neosnippet#expandable() ? "<Plug>(neosnippet_expand_or_jump)" : pumvisible() ? "<C-y>" : "<CR>"
     imap <expr><TAB> pumvisible() ? "<C-n>" : neosnippet#jumpable() ? "<Plug>(neosnippet_expand_or_jump)" : "<TAB>"
 endif
