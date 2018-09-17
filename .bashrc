@@ -123,9 +123,14 @@ PATH=$NODE_HOME:$PATH
 source ~/dotfiles/cawaii_prompt.sh
 alias pbcopy='xsel --clipboard --input'
 alias pbpaste='xsel --clipboard --output'
-PCONT="/home/engawa/workspace/contest/"
-ATCOP='/home/engawa/workspace/contest/atcoder/kako/'
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
 alias psqlserver='/etc/init.d/postgresql'
-alias tor='/home/engawa/tor-browser_en-US/start-tor-browser.desktop'
+alias v='vim'
+alias g='git'
+alias gcam='git commit -am'
+alias gcm='git commit -m'
+alias gpo='git push origin'
+export PYENV_ROOT=$HOME/.pyenv
+export PATH=$PYENV_ROOT/bin:$PATH
+eval "$(pyenv init -)"
