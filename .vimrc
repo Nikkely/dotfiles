@@ -7,16 +7,13 @@ set showcmd
 set nowritebackup
 set nobackup
 set backspace=indent,eol,start
-" set clipboard&
-" set clipboard^=unnamedplus
 set clipboard=unnamedplus
-"for mac tentatively fix
 set timeoutlen=400
 set nowrap
 set timeoutlen=400
 set belloff=all
+set wildmenu wildmode=full              " Display all matching files when we tab complete
 inoremap <silent> jj <ESC>
-inoremap JJ <ESC>%%a
 :command! Svimrc :source ~/.vimrc
 :command! OpenVimrc call Open_vimrc ()
 function! Open_vimrc()
@@ -30,16 +27,14 @@ vnoremap < <gv
 
 "complete
 inoremap { {}<LEFT>
+inoremap <expr> }  strpart(getline('.'), col('.')-1, 1) == ")" ? "\<Right>" : "}"
 inoremap ( ()<LEFT>
+inoremap <expr> )  strpart(getline('.'), col('.')-1, 1) == ")" ? "\<Right>" : ")"
 inoremap [ []<LEFT>
-inoremap {} {}
-inoremap () ()
-inoremap [] []
-" inoremap {<Enter> {}<Left><CR><CR><UP>
+inoremap <expr> ]  strpart(getline('.'), col('.')-1, 1) == "]" ? "\<Right>" : "]"
 inoremap {<CR> {<CR>}<UP><C-o>$<CR>
 inoremap [<CR> [<CR>]<UP><C-o>$<CR>
-inoremap (<CR> (<CR>)<UP><C-o>$<CR>
-" inoremap }} <RIGHT>
+"inoremap (<CR> (<CR>)<UP><C-o>$<CR>
 
 "visual
 set number
@@ -50,8 +45,8 @@ set visualbell
 set showmatch
 set laststatus=2
 set ambiwidth=double
+set wrapscan
 let loaded_matchparen = 1
-
 
 "filetype
 autocmd BufRead,BufNewFile *.slim setfiletype slim
@@ -72,7 +67,6 @@ set incsearch
 set ignorecase
 set smartcase
 set hlsearch
-set wrapscan
 
 "contest
 :command! OpenTemplate call Open_Template()
