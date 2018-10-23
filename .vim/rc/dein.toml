@@ -44,4 +44,7 @@ repo = 'jason0x43/vim-js-indent'
 repo = 'thinca/vim-quickrun'
 
 [[plugins]]
+repo = 'posva/vim-vue'
+
+[[plugins]]
 repo = 'luochen1990/rainbow'

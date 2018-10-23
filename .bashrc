@@ -117,15 +117,9 @@ if ! shopt -oq posix; then
 fi
 
 if [[ -s $HOME/.nvm/nvm.sh ]] ; then source $HOME/.nvm/nvm.sh ; fi
-NODE_HOME=$HOME/.nvm/versions/node/v6.10.2/bin
-PATH=$NODE_HOME:$PATH
 
 source ~/dotfiles/cawaii_prompt.sh
-alias pbcopy='xsel --clipboard --input'
-alias pbpaste='xsel --clipboard --output'
-PCONT="/home/engawa/workspace/contest/"
-ATCOP='/home/engawa/workspace/contest/atcoder/kako/'
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
-alias psqlserver='/etc/init.d/postgresql'
-alias tor='/home/engawa/tor-browser_en-US/start-tor-browser.desktop'
+alias v=vim
+alias g=git
+alias l=ls\ -G
+export LSCOLORS=gxfxcxdxdxegedabagacad

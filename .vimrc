@@ -9,7 +9,7 @@ set nobackup
 set backspace=indent,eol,start
 " set clipboard&
 " set clipboard^=unnamedplus
-set clipboard=unnamedplus
+set clipboard+=unnamed
 "for mac tentatively fix
 set timeoutlen=400
 set nowrap
@@ -321,3 +321,6 @@ highlight Folded ctermbg=none
 highlight EndOfBuffer ctermbg=none
 " call map(dein#check_clean(),"delete(v:val, 'rf')")
 "call dein#recache_runteimepath()
+
+source $VIMRUNTIME/macros/matchit.vim
+let b:match_words = "<div:</div>,<p:</p>"
