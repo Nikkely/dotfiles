@@ -84,25 +84,31 @@ int count32bit(unsigned v) {
 //     return (int)((count & 0x00000000ffffffff) + ((count >> 32) & 0x00000000ffffffff));
 // }
 
-// #define INT_INF (lli)(1e9 + 7)
-int modmul(int a, int b) {
-    return ((a %INT_INF) * (b % INT_INF)) % INT_INF;
+#define INT_INF (lli)(1e9 + 7)
+lli modadd(lli a, lli b) {
+    return (a + b) % INT_INF;
+}
+lli modsub(lli a, lli b) {
+    return (a + INT_INF - b) % INT_INF;
+}
+lli modmul(lli a, lli b) {
+    return (a * b) % INT_INF;
 }
 
-int modpower(int x, int y) {
+lli modpower(lli x, lli y) {
     if (y == 0) return 1;
     else if (y == 1) return x;
     else if (y & 1) {
-        int t = modpower(x, y >> 1);
+        lli t = modpower(x, y >> 1);
         return modmul(modmul(t, t), x);
     }
     else {
-        int t = modpower(x, y >> 1);
+        lli t = modpower(x, y >> 1);
         return modmul(t, t);
     }
 }
 
-int moddiv(int a, int b) {
+lli moddiv(lli a, lli b) {
     return modmul(a ,modpower(b, INT_INF-2));
 }
 
