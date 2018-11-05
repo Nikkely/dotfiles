@@ -7,7 +7,7 @@ set showcmd
 set nowritebackup
 set nobackup
 set backspace=indent,eol,start
-set clipboard=unnamedplus
+set clipboard+=unnamed
 set timeoutlen=400
 set nowrap
 set timeoutlen=400
@@ -34,7 +34,7 @@ inoremap [ []<LEFT>
 inoremap <expr> ]  strpart(getline('.'), col('.')-1, 1) == "]" ? "\<Right>" : "]"
 inoremap {<CR> {<CR>}<UP><C-o>$<CR>
 inoremap [<CR> [<CR>]<UP><C-o>$<CR>
-"inoremap (<CR> (<CR>)<UP><C-o>$<CR>
+" inoremap (<CR> (<CR>)<UP><C-o>$<CR>
 
 "visual
 set number

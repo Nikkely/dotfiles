@@ -119,23 +119,7 @@ fi
 if [[ -s $HOME/.nvm/nvm.sh ]] ; then source $HOME/.nvm/nvm.sh ; fi
 
 source ~/dotfiles/cawaii_prompt.sh
-<<<<<<< HEAD
 alias v=vim
 alias g=git
 alias l=ls\ -G
 export LSCOLORS=gxfxcxdxdxegedabagacad
-=======
-alias pbcopy='xsel --clipboard --input'
-alias pbpaste='xsel --clipboard --output'
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
-alias psqlserver='/etc/init.d/postgresql'
-alias v='vim'
-alias g='git'
-alias gcam='git commit -am'
-alias gcm='git commit -m'
-alias gpo='git push origin'
-export PYENV_ROOT=$HOME/.pyenv
-export PATH=$PYENV_ROOT/bin:$PATH
-eval "$(pyenv init -)"
->>>>>>> d8cab971d671340afec00cf4a07037302da1f4a4
