@@ -60,6 +60,7 @@ autocmd BufRead,BufNewFile *.erb setlocal tabstop=2 shiftwidth =2
 autocmd BufRead,BufNewFile *.slim setlocal tabstop=2 shiftwidth =2
 autocmd BufRead,BufNewFile *.ts setlocal tabstop=2 shiftwidth =2
 autocmd BufRead,BufNewFile *.html setlocal tabstop=2 shiftwidth =2
+autocmd BufRead,BufNewFile *.vue setlocal tabstop=2 shiftwidth =2
 autocmd BufRead,BufNewFile *.py setlocal tabstop=4 shiftwidth =4
 set list
 set listchars=tab:»-,trail:-,eol:↲,extends:»,precedes:«,nbsp:%
