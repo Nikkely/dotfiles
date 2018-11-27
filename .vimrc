@@ -26,12 +26,12 @@ vnoremap > >gv
 vnoremap < <gv
 
 "complete
-inoremap { {}<LEFT>
-inoremap <expr> }  strpart(getline('.'), col('.')-1, 1) == ")" ? "\<Right>" : "}"
-inoremap ( ()<LEFT>
-inoremap <expr> )  strpart(getline('.'), col('.')-1, 1) == ")" ? "\<Right>" : ")"
-inoremap [ []<LEFT>
-inoremap <expr> ]  strpart(getline('.'), col('.')-1, 1) == "]" ? "\<Right>" : "]"
+" inoremap { {}<LEFT>
+" inoremap <expr> }  strpart(getline('.'), col('.')-1, 1) == ")" ? "\<Right>" : "}"
+" inoremap ( ()<LEFT>
+" inoremap <expr> )  strpart(getline('.'), col('.')-1, 1) == ")" ? "\<Right>" : ")"
+" inoremap [ []<LEFT>
+" inoremap <expr> ]  strpart(getline('.'), col('.')-1, 1) == "]" ? "\<Right>" : "]"
 inoremap {<CR> {<CR>}<UP><C-o>$<CR>
 inoremap [<CR> [<CR>]<UP><C-o>$<CR>
 "inoremap (<CR> (<CR>)<UP><C-o>$<CR>
