@@ -75,7 +75,7 @@ set hlsearch
 :command! OpenTemplate call Open_Template()
 function! Open_Template()
     tabnew<CR>
-    :e ~/contest_template.h
+    :e ~/.contest_template.h
 endfunction
 
 "tabpage
