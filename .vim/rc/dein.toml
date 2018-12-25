@@ -47,4 +47,7 @@ repo = 'thinca/vim-quickrun'
 repo = 'posva/vim-vue'
 
 [[plugins]]
+repo = 'jwalton512/vim-blade'
+
+[[plugins]]
 repo = 'luochen1990/rainbow'
