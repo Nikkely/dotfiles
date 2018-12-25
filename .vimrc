@@ -1,5 +1,6 @@
 "settings
 set fenc=utf-8
+set encoding=utf-8
 set fileencodings=utf-8,euc-jp,sjis,cp932,iso-2022-jp
 set noswapfile
 set autoread
@@ -56,7 +57,7 @@ filetype plugin indent on
 " autocmd BufRead,BufNewFile *.vue setlocal tabstop=2 shiftwidth =2
 " autocmd BufRead,BufNewFile *.py setlocal tabstop=4 shiftwidth =4
 set list
-set listchars=tab:»-,trail:-,eol:↲,extends:»,precedes:«,nbsp:%
+" set listchars=tab:»-,trail:-,eol:↲,extends:»,precedes:«,nbsp:%
 
 "search
 set incsearch
