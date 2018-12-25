@@ -26,15 +26,9 @@ vnoremap > >gv
 vnoremap < <gv
 
 "complete
-inoremap { {}<LEFT>
-inoremap <expr> }  strpart(getline('.'), col('.')-1, 1) == ")" ? "\<Right>" : "}"
-inoremap ( ()<LEFT>
-inoremap <expr> )  strpart(getline('.'), col('.')-1, 1) == ")" ? "\<Right>" : ")"
-inoremap [ []<LEFT>
-inoremap <expr> ]  strpart(getline('.'), col('.')-1, 1) == "]" ? "\<Right>" : "]"
 inoremap {<CR> {<CR>}<UP><C-o>$<CR>
 inoremap [<CR> [<CR>]<UP><C-o>$<CR>
-" inoremap (<CR> (<CR>)<UP><C-o>$<CR>
+inoremap (<CR> (<CR>)<UP><C-o>$<CR>
 
 "visual
 set number
@@ -49,16 +43,18 @@ set wrapscan
 let loaded_matchparen = 1
 
 "filetype
-autocmd BufRead,BufNewFile *.slim setfiletype slim
-
-"tab
 set expandtab
-set tabstop=4
-set shiftwidth=4
-autocmd BufRead,BufNewFile *.rb setlocal tabstop=2 shiftwidth =2
-autocmd BufRead,BufNewFile *.erb setlocal tabstop=2 shiftwidth =2
-autocmd BufRead,BufNewFile *.slim setlocal tabstop=2 shiftwidth =2
-autocmd BufRead,BufNewFile *.py setlocal tabstop=4 shiftwidth =4
+filetype plugin indent on
+" set tabstop=4
+" set shiftwidth=4
+" autocmd BufRead,BufNewFile *.slim setfiletype slim
+" autocmd BufRead,BufNewFile *.rb setlocal tabstop=2 shiftwidth =2
+" autocmd BufRead,BufNewFile *.erb setlocal tabstop=2 shiftwidth =2
+" autocmd BufRead,BufNewFile *.slim setlocal tabstop=2 shiftwidth =2
+" autocmd BufRead,BufNewFile *.ts setlocal tabstop=2 shiftwidth =2
+" autocmd BufRead,BufNewFile *.html setlocal tabstop=2 shiftwidth =2
+" autocmd BufRead,BufNewFile *.vue setlocal tabstop=2 shiftwidth =2
+" autocmd BufRead,BufNewFile *.py setlocal tabstop=4 shiftwidth =4
 set list
 set listchars=tab:»-,trail:-,eol:↲,extends:»,precedes:«,nbsp:%
 
@@ -72,7 +68,7 @@ set hlsearch
 :command! OpenTemplate call Open_Template()
 function! Open_Template()
     tabnew<CR>
-    :e ~/contest_template.h
+    :e ~/.contest_template.h
 endfunction
 
 "tabpage
@@ -284,9 +280,9 @@ set statusline+=%{strlen(fugitive#statusline())>0?'\ git\:\ ':''}
 set statusline+=%{matchstr(fugitive#statusline(),'(\\zs.*\\ze)')}
 set statusline+=%{strlen(fugitive#statusline())>0?'\ \ =>\ ':'\ '}
 set statusline+=%f\ %{&ro?'⭤':''}%{&mod?'+':''}%<
-set statusline+=%4*\*\*%3*\ 
+set statusline+=%4*%3*\ 
 set statusline+=%{LinterStatus()}
-set statusline+=\ %4*\*\*
+set statusline+=\ %4*
 set statusline+=%#warningmsg#
 set statusline+=%=
 set statusline+=\|
@@ -308,13 +304,5 @@ nnoremap <silent> <C-n> :NERDTreeToggle<CR>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 syntax on
-highlight Normal ctermbg=none
-highlight NonText ctermbg=none
-highlight LineNr ctermbg=none
-highlight Folded ctermbg=none
-highlight EndOfBuffer ctermbg=none
 " call map(dein#check_clean(),"delete(v:val, 'rf')")
 "call dein#recache_runteimepath()
-
-source $VIMRUNTIME/macros/matchit.vim
-let b:match_words = "<div:</div>,<p:</p>"
