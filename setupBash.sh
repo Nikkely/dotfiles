@@ -9,7 +9,7 @@ EOS
 
 cat << EOS >> ~/.bash_profile
 export LSCOLORS=gxfxcxdxbxegedabagacad >> ~/.bash_profile
-export PS1='\[\e[0;32m\]\h@\u\[\e[m\]\n:\W\[\e[0;34m\]\t\[\e[m\] \$ ' >> ~/.bash_profile
+export PS1='\[\e[0;32m\]\h@\u\[\e[m\]:\W\[\e[0;34m\]\n\t\[\e[m\] \$ ' >> ~/.bash_profile
 
 if [ -f ~/.bashrc ] ; then
 . ~/.bashrc
