@@ -45,9 +45,11 @@ let loaded_matchparen = 1
 
 "filetype
 set expandtab
+set tabstop=4
+set shiftwidth=4
 filetype plugin indent on
-" set tabstop=4
-" set shiftwidth=4
+"sw=ShiftWidth, sts=SoftTabStop, ts=TabStop, et=ExpandTab
+autocmd Filetype php setlocal sw=4 sts=4 ts=4 et
 " autocmd BufRead,BufNewFile *.slim setfiletype slim
 " autocmd BufRead,BufNewFile *.rb setlocal tabstop=2 shiftwidth =2
 " autocmd BufRead,BufNewFile *.erb setlocal tabstop=2 shiftwidth =2
