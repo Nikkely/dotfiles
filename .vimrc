@@ -50,6 +50,7 @@ set shiftwidth=4
 filetype plugin indent on
 "sw=ShiftWidth, sts=SoftTabStop, ts=TabStop, et=ExpandTab
 autocmd Filetype php setlocal sw=4 sts=4 ts=4 et
+autocmd Filetype vue setlocal sw=2 sts=2 ts=2 et
 " autocmd BufRead,BufNewFile *.slim setfiletype slim
 " autocmd BufRead,BufNewFile *.rb setlocal tabstop=2 shiftwidth =2
 " autocmd BufRead,BufNewFile *.erb setlocal tabstop=2 shiftwidth =2
