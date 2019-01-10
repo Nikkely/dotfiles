@@ -35,7 +35,6 @@ inoremap (<CR> (<CR>)<UP><C-o>$<CR>
 set number
 set title
 set virtualedit=onemore
-set smartindent
 set visualbell
 set showmatch
 set laststatus=2
@@ -44,18 +43,26 @@ set wrapscan
 let loaded_matchparen = 1
 
 "filetype
-set expandtab
 filetype plugin indent on
-" set tabstop=4
-" set shiftwidth=4
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
+set expandtab
+set autoindent
+set smartindent
+
+augroup fileTypeIndent
+        autocmd!
+        autocmd BufNewFile,BufRead *.html setlocal ts=2 sts=2 sw=2
+        autocmd BufNewFile,BufRead *.js setlocal ts=2 sts=2 sw=2
+        autocmd BufNewFile,BufRead *.vue setlocal ts=2 sts=2 sw=2
+        autocmd BufNewFile,BufRead *.py setlocal ts=4 sts=4 sw=4
+augroup END
 " autocmd BufRead,BufNewFile *.slim setfiletype slim
 " autocmd BufRead,BufNewFile *.rb setlocal tabstop=2 shiftwidth =2
 " autocmd BufRead,BufNewFile *.erb setlocal tabstop=2 shiftwidth =2
 " autocmd BufRead,BufNewFile *.slim setlocal tabstop=2 shiftwidth =2
 " autocmd BufRead,BufNewFile *.ts setlocal tabstop=2 shiftwidth =2
-" autocmd BufRead,BufNewFile *.html setlocal tabstop=2 shiftwidth =2
-" autocmd BufRead,BufNewFile *.vue setlocal tabstop=2 shiftwidth =2
-" autocmd BufRead,BufNewFile *.py setlocal tabstop=4 shiftwidth =4
 set list
 " set listchars=tab:»-,trail:-,eol:↲,extends:»,precedes:«,nbsp:%
 
