@@ -40,6 +40,7 @@ set showmatch
 set laststatus=2
 set ambiwidth=double
 set wrapscan
+set splitright
 let loaded_matchparen = 1
 
 "filetype
@@ -64,7 +65,6 @@ augroup END
 " autocmd BufRead,BufNewFile *.slim setlocal tabstop=2 shiftwidth =2
 " autocmd BufRead,BufNewFile *.ts setlocal tabstop=2 shiftwidth =2
 set list
-" set listchars=tab:»-,trail:-,eol:↲,extends:»,precedes:«,nbsp:%
 
 "search
 set incsearch
@@ -310,6 +310,13 @@ let g:NERDTreeDirArrowCollapsible = '↓'
 nnoremap <silent> <C-n> :NERDTreeToggle<CR>
 " autocmd vimenter * if !argc() | NERDTree | endif
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+let g:quickrun_config = {
+\   "_" : {
+\       "hook/time/enable" : 1,
+\       "outputter/buffer/close_on_empty" : 1
+\   },
+\}
 
 syntax on
 " call map(dein#check_clean(),"delete(v:val, 'rf')")
