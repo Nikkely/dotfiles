@@ -260,14 +260,14 @@ function! LinterStatus() abort
 
     let l:all_errors = l:counts.error + l:counts.style_error
     let l:all_non_errors = l:counts.total - l:all_errors
-    return l:counts.total == 0 ? 'OK' : printf(
-    \   '☠ %d ⚠ %d ⬥ ok',
+    return l:counts.total == 0 ? '⬥ ok' : printf(
+    \   '☠ %d ⚠ %d',
     \   all_errors,
     \   all_non_errors
     \)
 endfunction
 
-set statusline=%2*\|%{Mode()}\ \|%1*
+set statusline=%2*%{Mode()}%1*
 set statusline+=%#StatusLine#
 set statusline+=%{strlen(fugitive#statusline())>0?'\ git\:\ ':''}
 set statusline+=%{matchstr(fugitive#statusline(),'(\\zs.*\\ze)')}
@@ -286,6 +286,13 @@ set statusline+=%{strlen(&filetype)>0?&filetype:''}
 set statusline+=\ %7*%8*-
 set statusline+=%7*%p%%%8*-
 set statusline+=%5*%l:%c
+
+" ALE
+if dein#tap('ale')
+    let g:ale_sign_column_always = 1
+    nmap <silent> <C-k> <Plug>(ale_previous_wrap)
+    nmap <silent> <C-j> <Plug>(ale_next_wrap)
+endif
 
 " NERDTree
 let g:NERDTreeDirArrows = 1
