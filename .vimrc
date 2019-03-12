@@ -9,18 +9,12 @@ set nowritebackup
 set nobackup
 set backspace=indent,eol,start
 set clipboard=unnamed,autoselect
-set timeoutlen=400
 set nowrap
 set timeoutlen=400
 set belloff=all
 set wildmenu wildmode=full              " Display all matching files when we tab complete
 inoremap <silent> jj <ESC>
 :command! Svimrc :source ~/.vimrc
-:command! OpenVimrc call Open_vimrc ()
-function! Open_vimrc()
-    tabnew<CR>
-    :e ~/.vimrc
-endfunction
 nnoremap OO :<C-u>call append(expand('.'), '')<Cr>
 :command! SudoSave :w !sudo tee %
 vnoremap > >gv
@@ -40,6 +34,7 @@ set showmatch
 set laststatus=2
 set ambiwidth=double
 set wrapscan
+set splitright
 let loaded_matchparen = 1
 
 "filetype
@@ -61,27 +56,17 @@ augroup fileTypeIndent
         autocmd BufNewFile,BufRead *.js setlocal ts=2 sts=2 sw=2
         autocmd BufNewFile,BufRead *.vue setlocal ts=2 sts=2 sw=2
         autocmd BufNewFile,BufRead *.py setlocal ts=4 sts=4 sw=4
+        autocmd BufNewFile,BufRead *.yaml setlocal ts=2 sts=2 sw=2
+        autocmd BufNewFile,BufRead *.yml setlocal ts=2 sts=2 sw=2
+        autocmd BufNewFile,BufRead *.conf setlocal ts=2 sts=2 sw=2
 augroup END
-" autocmd BufRead,BufNewFile *.slim setfiletype slim
-" autocmd BufRead,BufNewFile *.rb setlocal tabstop=2 shiftwidth =2
-" autocmd BufRead,BufNewFile *.erb setlocal tabstop=2 shiftwidth =2
-" autocmd BufRead,BufNewFile *.slim setlocal tabstop=2 shiftwidth =2
-" autocmd BufRead,BufNewFile *.ts setlocal tabstop=2 shiftwidth =2
 set list
-" set listchars=tab:»-,trail:-,eol:↲,extends:»,precedes:«,nbsp:%
 
 "search
 set incsearch
 set ignorecase
 set smartcase
 set hlsearch
-
-"contest
-:command! OpenTemplate call Open_Template()
-function! Open_Template()
-    tabnew<CR>
-    :e ~/.contest_template.h
-endfunction
 
 "tabpage
 function! s:SID_PREFIX()
@@ -146,29 +131,29 @@ nnoremap sQ :<C-u>bd<CR>
 let s:dein_dir = expand('~/.cache/dein')
 let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
 if &runtimepath !~# '/dein.vim'
-  if !isdirectory(s:dein_repo_dir)
-    execute '!git clone https://github.com/Shougo/dein.vim' s:dein_repo_dir
-  endif
-  execute 'set runtimepath^=' . fnamemodify(s:dein_repo_dir, ':p')
+    if !isdirectory(s:dein_repo_dir)
+        execute '!git clone https://github.com/Shougo/dein.vim' s:dein_repo_dir
+    endif
+    execute 'set runtimepath^=' . fnamemodify(s:dein_repo_dir, ':p')
 endif
 
 if dein#load_state(s:dein_dir)
-  call dein#begin(s:dein_dir)
+    call dein#begin(s:dein_dir)
 
-  let g:rc_dir    = expand('~/.vim/rc')
+    let g:rc_dir    = expand('~/.vim/rc')
 
-  let s:toml      = g:rc_dir . '/dein.toml'
-  let s:lazy_toml = g:rc_dir . '/dein_lazy.toml'
+    let s:toml      = g:rc_dir . '/dein.toml'
+    let s:lazy_toml = g:rc_dir . '/dein_lazy.toml'
 
-  call dein#load_toml(s:toml,      {'lazy': 0})
-  call dein#load_toml(s:lazy_toml, {'lazy': 1})
+    call dein#load_toml(s:toml,      {'lazy': 0})
+    call dein#load_toml(s:lazy_toml, {'lazy': 1})
 
-  call dein#end()
-  call dein#save_state()
+    call dein#end()
+    call dein#save_state()
 endif
 
 if dein#check_install()
-  call dein#install()
+    call dein#install()
 endif
 
 "colorscheme
@@ -230,48 +215,48 @@ let g:rainbow_active = 1
 let g:last_mode = ""
 
 function! Mode()
-  let l:mode = mode()
+    let l:mode = mode()
 
-  if l:mode !=# g:last_mode
-    let g:last_mode = l:mode
+    if l:mode !=# g:last_mode
+        let g:last_mode = l:mode
 
-    hi User2 guifg=#005f00 guibg=#dfff00 gui=BOLD ctermfg=22 ctermbg=190 cterm=BOLD
-    hi User3 guifg=#FFFFFF guibg=#414243 ctermfg=255 ctermbg=241
-    hi User4 guifg=#414234 guibg=#2B2B2B ctermfg=241 ctermbg=234
-    hi User5 guifg=#4e4e4e guibg=#FFFFFF gui=bold ctermfg=239 ctermbg=255 cterm=bold
-    hi User6 guifg=#FFFFFF guibg=#8a8a8a ctermfg=255 ctermbg=245
-    hi User7 guifg=#ffff00 guibg=#8a8a8a gui=bold ctermfg=226 ctermbg=245 cterm=bold
-    hi User8 guifg=#8a8a8a guibg=#414243 ctermfg=245 ctermbg=241
+        hi User2 guifg=#005f00 guibg=#dfff00 gui=BOLD ctermfg=22 ctermbg=190 cterm=BOLD
+        hi User3 guifg=#FFFFFF guibg=#414243 ctermfg=255 ctermbg=241
+        hi User4 guifg=#414234 guibg=#2B2B2B ctermfg=241 ctermbg=234
+        hi User5 guifg=#4e4e4e guibg=#FFFFFF gui=bold ctermfg=239 ctermbg=255 cterm=bold
+        hi User6 guifg=#FFFFFF guibg=#8a8a8a ctermfg=255 ctermbg=245
+        hi User7 guifg=#ffff00 guibg=#8a8a8a gui=bold ctermfg=226 ctermbg=245 cterm=bold
+        hi User8 guifg=#8a8a8a guibg=#414243 ctermfg=245 ctermbg=241
 
-    if l:mode ==# 'n'
-      hi User3 guifg=#dfff00 ctermfg=190
-    elseif l:mode ==# "i"
-      hi User2 guifg=#005fff guibg=#FFFFFF ctermfg=27 ctermbg=255
-      hi User3 guifg=#FFFFFF ctermfg=255
-    elseif l:mode ==# "R"
-      hi User2 guifg=#FFFFFF guibg=#df0000 ctermfg=255 ctermbg=160
-      hi User3 guifg=#df0000 ctermfg=160
-    elseif l:mode ==? "v" || l:mode ==# ""
-      hi User2 guifg=#4e4e4e guibg=#ffaf00 ctermfg=239 ctermbg=214
-      hi User3 guifg=#ffaf00 ctermfg=214
+        if l:mode ==# 'n'
+            hi User3 guifg=#dfff00 ctermfg=190
+        elseif l:mode ==# "i"
+            hi User2 guifg=#005fff guibg=#FFFFFF ctermfg=27 ctermbg=255
+            hi User3 guifg=#FFFFFF ctermfg=255
+        elseif l:mode ==# "R"
+            hi User2 guifg=#FFFFFF guibg=#df0000 ctermfg=255 ctermbg=160
+            hi User3 guifg=#df0000 ctermfg=160
+        elseif l:mode ==? "v" || l:mode ==# ""
+            hi User2 guifg=#4e4e4e guibg=#ffaf00 ctermfg=239 ctermbg=214
+            hi User3 guifg=#ffaf00 ctermfg=214
+        endif
     endif
-  endif 
 
-  if l:mode ==# "n"
-    return "  NORMAL "
-  elseif l:mode ==# "i"
-    return "  INSERT "
-  elseif l:mode ==# "R"
-    return "  REPLACE "
-  elseif l:mode ==# "v"
-    return "  VISUAL "
-  elseif l:mode ==# "V"
-    return "  V·LINE "
-  elseif l:mode ==# ""
-    return "  V·BLOCK "
-  else
-    return l:mode
-  endif
+    if l:mode ==# "n"
+        return "  NORMAL "
+    elseif l:mode ==# "i"
+        return "  INSERT "
+    elseif l:mode ==# "R"
+        return "  REPLACE "
+    elseif l:mode ==# "v"
+        return "  VISUAL "
+    elseif l:mode ==# "V"
+        return "  V·LINE "
+    elseif l:mode ==# ""
+        return "  V·BLOCK "
+    else
+        return l:mode
+    endif
 endfunction
 
 function! LinterStatus() abort
@@ -279,14 +264,14 @@ function! LinterStatus() abort
 
     let l:all_errors = l:counts.error + l:counts.style_error
     let l:all_non_errors = l:counts.total - l:all_errors
-    return l:counts.total == 0 ? 'OK' : printf(
-    \   '☠ %d ⚠ %d ⬥ ok',
+    return l:counts.total == 0 ? '⬥ ok' : printf(
+    \   '☠ %d ⚠ %d',
     \   all_errors,
     \   all_non_errors
     \)
 endfunction
 
-set statusline=%2*\|%{Mode()}\ \|%1*
+set statusline=%2*%{Mode()}%1*
 set statusline+=%#StatusLine#
 set statusline+=%{strlen(fugitive#statusline())>0?'\ git\:\ ':''}
 set statusline+=%{matchstr(fugitive#statusline(),'(\\zs.*\\ze)')}
@@ -306,6 +291,13 @@ set statusline+=\ %7*%8*-
 set statusline+=%7*%p%%%8*-
 set statusline+=%5*%l:%c
 
+" ALE
+if dein#tap('ale')
+    let g:ale_sign_column_always = 1
+    nmap <silent> <C-k> <Plug>(ale_previous_wrap)
+    nmap <silent> <C-j> <Plug>(ale_next_wrap)
+endif
+
 " NERDTree
 let g:NERDTreeDirArrows = 1
 let g:NERDTreeDirArrowExpandable  = '→'
@@ -314,6 +306,13 @@ let g:NERDTreeDirArrowCollapsible = '↓'
 nnoremap <silent> <C-n> :NERDTreeToggle<CR>
 " autocmd vimenter * if !argc() | NERDTree | endif
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+let g:quickrun_config = {
+\   "_" : {
+\       "hook/time/enable" : 1,
+\       "outputter/buffer/close_on_empty" : 1
+\   },
+\}
 
 syntax on
 " call map(dein#check_clean(),"delete(v:val, 'rf')")
