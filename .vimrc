@@ -305,6 +305,12 @@ if dein#tap('fzf.vim')
     set rtp+=/usr/local/opt/fzf
 endif
 
+" vim-gitgutter
+if dein#tap('vim-gitgutter')
+    set signcolumn=yes
+    " let g:gitgutter_sign_column_always = 1
+endif
+
 " NERDTree
 let g:NERDTreeDirArrows = 1
 let g:NERDTreeDirArrowExpandable  = '→'
