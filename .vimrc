@@ -300,6 +300,11 @@ if dein#tap('ale')
     nmap <silent> <C-j> <Plug>(ale_next_wrap)
 endif
 
+" fzf
+if dein#tap('fzf.vim')
+    set rtp+=/usr/local/opt/fzf
+endif
+
 " NERDTree
 let g:NERDTreeDirArrows = 1
 let g:NERDTreeDirArrowExpandable  = '→'
