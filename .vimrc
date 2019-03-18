@@ -311,6 +311,7 @@ let g:quickrun_config = {
 \       "outputter/buffer/close_on_empty" : 1
 \   },
 \}
+command! ZQuickrun :QuickRun -input =@+
 
 syntax on
 " call map(dein#check_clean(),"delete(v:val, 'rf')")
