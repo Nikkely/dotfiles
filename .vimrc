@@ -8,7 +8,9 @@ set showcmd
 set nowritebackup
 set nobackup
 set backspace=indent,eol,start
-set clipboard=unnamed,autoselect
+if has('unix')
+set clipboard=unnamed
+endif
 set nowrap
 set timeoutlen=400
 set belloff=all
