@@ -9,7 +9,7 @@ set nowritebackup
 set nobackup
 set backspace=indent,eol,start
 if has('unix')
-set clipboard=unnamed
+    set clipboard=unnamed
 endif
 set nowrap
 set timeoutlen=400
@@ -202,7 +202,7 @@ if dein#tap('neocomplete.vim')
     let g:neocomplete#enable_smart_case = 1
     let g:neocomplete#min_keyword_length = 3
     let g:neocomplete#enable_auto_delimiter = 1
-    let g:neocomplete#auto_completion_start_length = 1
+    let g:neocomplete#auto_completion_start_length = 2
     imap <expr><CR> neosnippet#expandable() ? "<Plug>(neosnippet_expand_or_jump)" : pumvisible() ? "<C-y>" : "<CR>"
     imap <expr><TAB> pumvisible() ? "<C-n>" : neosnippet#jumpable() ? "<Plug>(neosnippet_expand_or_jump)" : "<TAB>"
 endif
