@@ -310,6 +310,10 @@ let g:quickrun_config = {
 \       "hook/time/enable" : 1,
 \       "outputter/buffer/close_on_empty" : 1
 \   },
+\   "python" : {
+\       "type" : "python",
+\       "command" : "python3",
+\   }
 \}
 command! ZQuickrun :QuickRun -input =@+
 
