@@ -9,12 +9,14 @@ set nowritebackup
 set nobackup
 set backspace=indent,eol,start
 if has('unix')
-set clipboard=unnamed
+    set clipboard=unnamed
 endif
 set nowrap
 set timeoutlen=400
 set belloff=all
 set wildmenu wildmode=full              " Display all matching files when we tab complete
+set completeopt=menuone                 " Dont show preview window in writing python code
+set ttyfast
 inoremap <silent> jj <ESC>
 :command! Svimrc :source ~/.vimrc
 nnoremap OO :<C-u>call append(expand('.'), '')<Cr>
@@ -202,7 +204,7 @@ if dein#tap('neocomplete.vim')
     let g:neocomplete#enable_smart_case = 1
     let g:neocomplete#min_keyword_length = 3
     let g:neocomplete#enable_auto_delimiter = 1
-    let g:neocomplete#auto_completion_start_length = 1
+    let g:neocomplete#auto_completion_start_length = 2
     imap <expr><CR> neosnippet#expandable() ? "<Plug>(neosnippet_expand_or_jump)" : pumvisible() ? "<C-y>" : "<CR>"
     imap <expr><TAB> pumvisible() ? "<C-n>" : neosnippet#jumpable() ? "<Plug>(neosnippet_expand_or_jump)" : "<TAB>"
 endif
@@ -310,7 +312,12 @@ let g:quickrun_config = {
 \       "hook/time/enable" : 1,
 \       "outputter/buffer/close_on_empty" : 1
 \   },
+\   "python" : {
+\       "type" : "python",
+\       "command" : "python3",
+\   }
 \}
+command! ZQuickrun :QuickRun -input =@+
 
 syntax on
 " call map(dein#check_clean(),"delete(v:val, 'rf')")
