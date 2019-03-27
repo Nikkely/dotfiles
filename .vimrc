@@ -16,6 +16,7 @@ set timeoutlen=400
 set belloff=all
 set wildmenu wildmode=full              " Display all matching files when we tab complete
 set completeopt=menuone                 " Dont show preview window in writing python code
+set ttyfast
 inoremap <silent> jj <ESC>
 :command! Svimrc :source ~/.vimrc
 nnoremap OO :<C-u>call append(expand('.'), '')<Cr>
