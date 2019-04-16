@@ -5,6 +5,7 @@ alias v="/usr/local/Cellar/vim/8.1.0600/bin/vim"
 alias g=git
 alias l="ls -G"
 alias ll="ls -la"
+alias d="docker"
 source ~/dotfiles/cawaii_prompt.sh
 EOS
 
