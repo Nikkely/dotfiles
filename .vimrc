@@ -17,6 +17,8 @@ set belloff=all
 set wildmenu wildmode=full              " Display all matching files when we tab complete
 set completeopt=menuone                 " Dont show preview window in writing python code
 set ttyfast
+set mouse=a
+set ttymouse=xterm2
 inoremap <silent> jj <ESC>
 :command! Svimrc :source ~/.vimrc
 nnoremap OO :<C-u>call append(expand('.'), '')<Cr>
@@ -306,6 +308,11 @@ let g:NERDTreeDirArrowCollapsible = '↓'
 nnoremap <silent> <C-n> :NERDTreeToggle<CR>
 " autocmd vimenter * if !argc() | NERDTree | endif
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+" fzf
+if dein#tap('fzf.vim')
+    set rtp+=/usr/local/opt/fzf/
+endif
 
 let g:quickrun_config = {
 \   "_" : {

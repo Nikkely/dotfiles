@@ -1,25 +1,30 @@
 [[plugins]]
-repo = 'Shougo/unite.vim'
-
-[[plugins]]
-repo = 'Shougo/neomru.vim'
-on_source = ['unite.vim']
-
-[[plugins]]
 repo = 'Shougo/neosnippet.vim'
 depends = ['neosnippet-snippets']
-on_i = 1
+on_event = 'InsertEnter'
 on_ft = ['snippet']
 
 [[plugins]]
 repo = 'Shougo/neocomplete.vim'
 if = 'has("lua")'
-on_i = 1
+on_event = 'InsertEnter'
 
 [[plugins]]
 repo = 'tomtom/tcomment_vim'
-on_i = 1
+on_event = 'InsertEnter'
 
 [[plugins]]
-repo = 'cohama/vim-insert-linenr'
-on_i = 1
+repo = 'leafgarland/typescript-vim'
+on_ft = ['typescript']
+
+[[plugins]]
+repo = 'posva/vim-vue'
+on_ft = ['vue']
+
+[[plugins]]
+repo = 'slim-template/vim-slim'
+on_ft = ['slim']
+
+[[plugins]]
+repo = 'jwalton512/vim-blade'
+on_ft = ['php']

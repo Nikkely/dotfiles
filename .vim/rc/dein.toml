@@ -2,9 +2,6 @@
 repo = 'Shougo/dein.vim'
 
 [[plugins]]
-repo = 'Shougo/unite.vim'
-
-[[plugins]]
 repo = 'Shougo/neosnippet-snippets'
 
 [[plugins]]
@@ -32,19 +29,13 @@ repo = 'w0rp/ale'
 repo = 'scrooloose/nerdtree'
 
 [[plugins]]
-repo = 'slim-template/vim-slim'
-
-[[plugins]]
-repo = 'leafgarland/typescript-vim'
-
-[[plugins]]
-repo = 'jason0x43/vim-js-indent'
-
-[[plugins]]
 repo = 'thinca/vim-quickrun'
 
 [[plugins]]
-repo = 'posva/vim-vue'
+repo = 'luochen1990/rainbow'
 
 [[plugins]]
-repo = 'luochen1990/rainbow'
+repo = 'junegunn/fzf.vim'
+
+[[plugins]]
+repo = 'airblade/vim-gitgutter'
