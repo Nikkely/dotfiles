@@ -42,6 +42,7 @@ set ambiwidth=double
 set wrapscan
 set splitright
 let loaded_matchparen = 1
+set list
 
 "filetype
 filetype plugin indent on
@@ -52,17 +53,21 @@ set expandtab
 set autoindent
 set smartindent
 
+augroup fileTypeConvert
+    autocmd!
+    autocmd BufNewFile,BufRead *.txt setfiletype text
+    autocmd BufNewFile,BufRead *.conf setfiletype config
+augroup END
+
 augroup fileTypeIndent
         autocmd!
-        autocmd BufNewFile,BufRead *.html setlocal ts=2 sts=2 sw=2
-        autocmd BufNewFile,BufRead *.js setlocal ts=2 sts=2 sw=2
-        autocmd BufNewFile,BufRead *.vue setlocal ts=2 sts=2 sw=2
-        autocmd BufNewFile,BufRead *.py setlocal ts=4 sts=4 sw=4
-        autocmd BufNewFile,BufRead *.yaml setlocal ts=2 sts=2 sw=2
-        autocmd BufNewFile,BufRead *.yml setlocal ts=2 sts=2 sw=2
-        autocmd BufNewFile,BufRead *.conf setlocal ts=2 sts=2 sw=2
+        autocmd FileType html setlocal ts=2 sts=2 sw=2
+        autocmd FileType js setlocal ts=2 sts=2 sw=2
+        autocmd FileType vue setlocal ts=2 sts=2 sw=2
+        autocmd FileType python setlocal ts=4 sts=4 sw=4
+        autocmd FileType yaml setlocal ts=2 sts=2 sw=2
+        autocmd FileType config setlocal ts=2 sts=2 sw=2
 augroup END
-set list
 
 "search
 set incsearch
