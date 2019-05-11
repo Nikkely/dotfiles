@@ -327,6 +327,9 @@ let g:quickrun_config = {
 \   "python" : {
 \       "type" : "python",
 \       "command" : "python3",
+\   },
+\   "cpp" : {
+\       "cmdopt" : "-std=c++11"
 \   }
 \}
 command! ZQuickrun :QuickRun -input =@+
