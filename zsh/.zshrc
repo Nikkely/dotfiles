@@ -52,7 +52,6 @@ alias ls='ls -aF'
 alias ll='ls -l'
 alias v='vim'
 alias g='git'
-# alias python='python3'
 export CLICOLOR=1
 export LSCOLORS=DxGxcxdxCxegedabagacad
 
