@@ -8,3 +8,4 @@ code --install-extension dbaeumer.vscode-eslint
 code --install-extension esbenp.prettier-vscode
 code --install-extension Gruntfuggly.todo-tree
 code --install-extension mhutchie.git-graph
+code --install-extension ICS.japanese-proofreading
