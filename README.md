@@ -17,9 +17,7 @@ brew install bash-completion
 
 ### vim
 
-オワコン
-
-方針として、基本的に拡張は入れない  
+基本的に拡張は入れない
 
 ### vrapper
 
@@ -30,15 +28,9 @@ TODO:vrapperrcを用意する
 
 ### vscode
 
-新時代
-
-基本はworkspaceで設定してくれ  
-あくまでキーバインドとかを定義しておく  
-jjができないと死ぬ病にかかっているので  
+基本はworkspaceで設定  
 
 ### zsh
-
-時代に乗る
 
 #### bash-completionはインストールする
 
