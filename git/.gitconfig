@@ -1,0 +1,9 @@
+[https]
+	proxy = 
+[http]
+	proxy = 
+[user]
+	email = nikkely@users.noreply.github.com
+	name = nikkely
+[core]
+	editor = vim
