@@ -1,7 +1,3 @@
-# 環境変数
-export LANG=ja_JP.UTF-8
-export LSCOLORS=gxfxcxdxbxegedabagacad
-
 # ヒストリの設定
 HISTFILE=~/.zsh_history
 HISTSIZE=30000
@@ -52,8 +48,6 @@ alias ls='ls -aF'
 alias ll='ls -l'
 alias v='vim'
 alias g='git'
-export CLICOLOR=1
-export LSCOLORS=DxGxcxdxCxegedabagacad
 
 # git-promptの読み込み
 source ~/.zsh/git-prompt.sh
@@ -71,4 +65,3 @@ GIT_PS1_SHOWUPSTREAM=auto
 
 # プロンプトの表示設定(好きなようにカスタマイズ可)
 setopt PROMPT_SUBST ; PS1='%F{green}%n@%m%f: %F{cyan}%~%f %F{red}$(__git_ps1 "(%s)")%f
-\$ '

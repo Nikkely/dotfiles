@@ -36,5 +36,5 @@ TODO:vrapperrcを用意する
 
 ##### for mac 
 ```sh
-brew install bash-completion
+brew install zsh-completion
 ```
