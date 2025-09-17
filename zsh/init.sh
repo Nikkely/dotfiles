@@ -7,5 +7,5 @@ curl -o git-prompt.sh https://raw.githubusercontent.com/git/git/master/contrib/c
 curl -o git-completion.bash https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash
 curl -o _git https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.zsh
 
-echo('macはbrew/list.txtの各モジュールを個別インストール')
+echo('macはbrew/の各モジュールを個別インストール')
 
