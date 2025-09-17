@@ -7,7 +7,5 @@ curl -o git-prompt.sh https://raw.githubusercontent.com/git/git/master/contrib/c
 curl -o git-completion.bash https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash
 curl -o _git https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.zsh
 
-# macを想定
-brew install zsh-autosuggestions
-brew install zsh-syntax-highlighting
+echo('macはbrew/list.txtの各モジュールを個別インストール')
 

@@ -1,0 +1,10 @@
+dbeaver-community
+docker-desktop
+google-japanese-ime
+intellij-idea
+postman
+scroll-reverser
+stoplight-studio
+tableplus
+temurin@17
+visual-studio-code
